@@ -1,0 +1,17 @@
+.add {
+  float: left;
+  width: 50%;
+}
+
+.retrieve {
+  float: right;
+  width: 50%;
+}
+
+.list {
+  float: left;
+}
+
+.results {
+  float: right;
+}

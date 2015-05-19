@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="demo/demo.css" />
+    <title>Prefix Tree Demo</title>
+    <script src="src/prefixTree.js"></script>
+    <script src="demo/demo.js"></script>
+  </head>
+  <div class='add'>
+    <input placeholder="Add word" onkeyup="if(event.keyCode === 13){addWord(value), value=''}"></input>
+    <div>Contained words:</div>
+    <ul class='contained'>
+    </ul>
+  </div>
+  <div class='retrieve'>
+    <input placeholder="Retrieve words" onkeyup="if(event.which){updateWordList('retrieved', value)}"></input>
+    <div>Matching words:</div>
+    <ul class='retrieved'>
+    </ul>
+  </div>
+  <body>
+  </body>
+</html>
