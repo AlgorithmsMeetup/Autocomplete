@@ -7,7 +7,7 @@ Autocomplete is a feature that we’re all too familiar with.  But how does it a
 A prefix tree (or [Trie](http://en.wikipedia.org/wiki/Trie)) is a tree structure where every point in the tree is a letter and contains a list of possible letters that can come immediately next.  This means that starting from the top of the tree, we can work our way down through the tree, constructing words as we go from the letter of each node.
 
 Here’s a diagram:
-
+```
       c
       |\
       a u
@@ -21,7 +21,7 @@ Here’s a diagram:
    t
    |
    *
-
+```
 Starting from the ‘c’ at the top of that tree, you can follow the path down to create words-- in this case: 'car', 'carrot', 'cat', and 'cut'.  Notice the ‘\*’ at the end of every word.  We must somehow mark the end of each word, otherwise we’ll never know when to stop!  Imagine if we didn’t mark the end of the word:  we could probably find that the tree contains 'carrot', but how would we know that 'car' is a valid word?
 
 Alright, hopefully makes some sense now... But how do we actually add or retrieve words from it?  
@@ -29,7 +29,7 @@ Alright, hopefully makes some sense now... But how do we actually add or retriev
 
 ####Recursion in Prefix Trees
 
-One of the most important things to understand about a prefix tree is that it’s a recursive structure.  That means that every node within the tree is itself another prefix tree.  Once we understand this, it allows us to write fairly simple code to control the entire tree.  When adding a word, instead of accessing each node, its children, their children [... so on], we can count on each node taking care of itself if we use recursive methods.
+One of the most important things to understand about a prefix tree is that it’s a [recursive structure](http://en.wikipedia.org/wiki/Recursive_data_type).  That means that every node within the tree is itself another prefix tree.  Once we understand this, it allows us to write fairly simple code to control the entire tree.  When adding a word, instead of accessing each node, its children, their children [... so on], we can count on each node taking care of itself if we use recursive methods.
 
 ####Word addition
 
