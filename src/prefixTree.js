@@ -31,7 +31,7 @@ PrefixTree.prototype.getWords = function(prefix){
   } else{
     for(var letter in this.children){
       if(letter === 'end'){
-        words.push('*');
+        words.push('');
       } else {
         suffixes = this.children[letter].getWords();
         suffixes.forEach(function(suffix){
@@ -41,9 +41,6 @@ PrefixTree.prototype.getWords = function(prefix){
     }
   }
 
-  words = words.map(function(word){
-    return word.replace('*','');
-  });
   return words;
 }
 
@@ -51,12 +48,11 @@ PrefixTree.prototype.removeWord = function(word){
   if(word){
     if(word[0] in this.children){
       this.children[word[0]].removeWord(word.slice(1));
+      if(Object.keys(this.children[word[0]].children).length === 0) {
+        delete this.children[word[0]];
+      }
     }
-  }
-
-  if(!word || Object.keys(this.children).length === 1){
+  } else {
     delete this.children['end'];
   }
-
-  return word;
 }
