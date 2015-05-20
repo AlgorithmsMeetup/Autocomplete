@@ -114,4 +114,8 @@ describe('The removeWord method', function(){
     var retrievedWords = prefixTree.getWords();
     expect(retrievedWords.length).to.be(3);
   });
+  it('should remove letters that are not contained in any word', function(){
+    prefixTree.removeWord('carton');
+    expect(prefixTree.children.c.children.a.children.r.children.t.children.o).to.be(undefined);
+  });
 });
